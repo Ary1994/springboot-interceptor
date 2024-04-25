@@ -14,8 +14,9 @@ public class MvcConfig implements WebMvcConfigurer{
     private HandlerInterceptor timeInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(timeInterceptor);//si quiero agregarlo a una sola ruta se puede agregar addpaht con un .
-       
+        registry.addInterceptor(timeInterceptor).addPathPatterns("/app/bar","/app/foo");//con "app/**  sirve para todas las rutas con app"
+       // registry.addInterceptor(timeInterceptor).excludePathPatterns("/app/bar","/app/foo");
+        
     }
     
 
